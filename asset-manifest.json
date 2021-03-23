@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/detourbus/static/css/main.9bd8ae1a.chunk.css",
+    "main.js": "/detourbus/static/js/main.380f90b4.chunk.js",
+    "main.js.map": "/detourbus/static/js/main.380f90b4.chunk.js.map",
+    "runtime-main.js": "/detourbus/static/js/runtime-main.6373f8e3.js",
+    "runtime-main.js.map": "/detourbus/static/js/runtime-main.6373f8e3.js.map",
+    "static/js/2.06d572b7.chunk.js": "/detourbus/static/js/2.06d572b7.chunk.js",
+    "static/js/2.06d572b7.chunk.js.map": "/detourbus/static/js/2.06d572b7.chunk.js.map",
+    "index.html": "/detourbus/index.html",
+    "static/css/main.9bd8ae1a.chunk.css.map": "/detourbus/static/css/main.9bd8ae1a.chunk.css.map",
+    "static/js/2.06d572b7.chunk.js.LICENSE.txt": "/detourbus/static/js/2.06d572b7.chunk.js.LICENSE.txt",
+    "static/media/FooterPoster.png": "/detourbus/static/media/FooterPoster.001ce298.png",
+    "static/media/Logo.svg": "/detourbus/static/media/Logo.19c595e2.svg",
+    "static/media/Oculus.svg": "/detourbus/static/media/Oculus.af91a75d.svg",
+    "static/media/instagram.svg": "/detourbus/static/media/instagram.526a84f9.svg",
+    "static/media/mail.svg": "/detourbus/static/media/mail.5617e60d.svg",
+    "static/media/presskit.svg": "/detourbus/static/media/presskit.09d0490c.svg",
+    "static/media/twitch.svg": "/detourbus/static/media/twitch.0daa5483.svg",
+    "static/media/twitter.svg": "/detourbus/static/media/twitter.88fe81c8.svg",
+    "static/media/youtube.svg": "/detourbus/static/media/youtube.4a68e6c4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6373f8e3.js",
+    "static/js/2.06d572b7.chunk.js",
+    "static/css/main.9bd8ae1a.chunk.css",
+    "static/js/main.380f90b4.chunk.js"
+  ]
+}
