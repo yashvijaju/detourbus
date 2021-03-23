@@ -34,7 +34,7 @@ function Home() {
           <div className="footer">
             <div className="footer_nav">
               <a href="/" className="content">HOME</a>
-              <a href="https://www.detourbus.com/faqs" className="content">FAQ</a>
+              <a href="/faq" className="content">FAQ</a>
               <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
               <a href="https://www.detourbus.com/blog" className="content">BLOG</a>
               <a href="/" className="content">ACCESSIBILITY</a>

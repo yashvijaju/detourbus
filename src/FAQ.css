@@ -1,0 +1,32 @@
+.content_faq {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60w;
+    margin-bottom: 5vh;
+}
+.content_question {
+    width: 30%;
+    font-family: neue-kabel;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: left;
+    color: #000000;
+}
+
+.content_answer {
+    width: 65%;
+    font-family: neue-kabel;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: left;
+    color: #000000;
+}
+
+.content_answer a {
+    color: black;
+}
