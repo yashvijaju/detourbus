@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Logo, FooterPoster, Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube } from './assets/index.js'
 import './Home.css';
 
-function Home() {
+function FAQ() {
   const [mailingListValue, setMailingListValue] = useState('')
 
   return (
@@ -13,23 +13,7 @@ function Home() {
             <img src={Logo.default} className="logo" alt="Detour Bus Logo" />
           </div>
           <div className="content">
-            Detour Bus is a casual VR game where players build ridiculous winding highways around themselves to take the dysfunctional Flowers family on a road trip across Post-Infrastructure America. Get in the construction groove to take on corrupt Senator Joseph McCarthief’s attempts to turn all freeways into pay-to-drive tunnels and reclaim your right to transportation.<br/>
-            <br/>
-            Featuring: bison herding, 5G weather machines, 360-degree video, a giant tow truck mech, and of course lots of bus hats
-            <br/><br/><br/><br/>
-            <span className="content_bold">Arriving summer 2021 on Oculus Rift and SteamVR</span>
-            <br/><br/>
-            Made by placeholder and friends, and published by placeholder. <br/>
-            Please enjoy our screenshots, Twitter, and Email.
-          </div>
-          <div className="youtube">
-            <iframe 
-              src="https://www.youtube.com/embed/eVtKsgXyZd0"
-              title="YouTube video player" 
-              frameborder="0" 
-              className="youtube_embed"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-            ></iframe>
+            
           </div>
           <div className="footer">
             <div className="footer_nav">
@@ -101,4 +85,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default FAQ;
