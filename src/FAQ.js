@@ -58,7 +58,7 @@ function FAQ() {
               <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
               <a href="https://www.detourbus.com/blog" className="content">BLOG</a>
               <a href="/" className="content">ACCESSIBILITY</a>
-              <a href="https://www.detourbus.com/team" className="content">TEAM</a>
+              <a href="/team" className="content">TEAM</a>
             </div>
             <div className="footer_row">
               <div className="footer_row_mailinglist">

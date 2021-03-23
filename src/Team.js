@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Logo, FooterPoster, Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube } from './assets/index.js'
 import './Home.css';
+import './FAQ.css';
 
-function Home() {
+function Team() {
   const [mailingListValue, setMailingListValue] = useState('')
 
   return (
@@ -10,31 +11,64 @@ function Home() {
       <div className="container">
         <div className="container_inner">
           <div className="header">
-            <img src={Logo.default} className="logo" alt="Detour Bus Logo" />
-          </div>
+            <a href="/">
+              <img src={Logo.default} className="logo" alt="Detour Bus Logo" />
+            </a>          </div>
           <div className="content">
-            Detour Bus is a casual VR game where players build ridiculous winding highways around themselves to take the dysfunctional Flowers family on a road trip across Post-Infrastructure America. Get in the construction groove to take on corrupt Senator Joseph McCarthief’s attempts to turn all freeways into pay-to-drive tunnels and reclaim your right to transportation.<br/>
-            <br/>
-            Featuring: bison herding, 5G weather machines, 360-degree video, a giant tow truck mech, and of course lots of bus hats
-            <br/><br/><br/><br/>
-            <span className="content_bold">Arriving summer 2021 on Oculus Rift and SteamVR</span>
-            <br/><br/>
-            Made by placeholder and friends, and published by placeholder. <br/>
-            Please enjoy our screenshots, Twitter, and Email.
-          </div>
-          <div className="youtube">
-            <iframe 
-              src="https://www.youtube.com/embed/eVtKsgXyZd0"
-              title="YouTube video player" 
-              frameborder="0" 
-              className="youtube_embed"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-            ></iframe>
+            <p className="content_bold" style={{marginBottom: '10vh'}}> The Team</p>
+            <div className="content_faq">
+                <div className="content_question"> A VIDEO GAME BY</div>
+                <div className="content_answer">Zach Flores and Ezra J. Robinson</div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">PRODUCER</div>
+                <div className="content_answer"><a href="https://www.linkedin.com/in/elibork/" target="_blank" rel="noopener noreferrer">Eli Börk</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">DESIGNERS</div>
+                <div className="content_answer"><a href="https://www.linkedin.com/in/skylarkelley/" target="_blank" rel="noopener noreferrer">Skylar Kelley</a> and <a href="https://www.oliviayinjx.com/" target="_blank" rel="noopener noreferrer">Olivia Yin</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">ENGINEERS</div>
+                <div className="content_answer">Kenny Wei and <a href="https://www.jingtaoh.com/" target="_blank" rel="noopener noreferrer">Jingtao Huang</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">WRITERS</div>
+                <div className="content_answer"><a href="https://www.milosmiley.dev/" target="_blank" rel="noopener noreferrer">Milo Smiley</a> and <a href="https://www.sullyzack.com/" target="_blank" rel="noopener noreferrer">Sully Zack</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">SOUND DESIGNER</div>
+                <div className="content_answer">Hanna Adams</div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">USABILITY RESEARCHERS</div>
+                <div className="content_answer"><a href="https://davidlawrencebarrett.com/" target="_blank" rel="noopener noreferrer">David Barrett</a> and <a href="https://www.remiwedin.com/" target="_blank" rel="noopener noreferrer">Remi Wedin</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">ART DIRECTOR</div>
+                <div className="content_answer"><a href="https://quianadang.co/" target="_blank" rel="noopener noreferrer">Quiana Dang</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">CONCEPT ARTIST</div>
+                <div className="content_answer"><a href="https://shroonchu.wixsite.com/portfolio" target="_blank" rel="noopener noreferrer">Shon Xiao</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">3D ARTISTS</div>
+                <div className="content_answer"><a href="https://www.devongadzinski.com/" target="_blank" rel="noopener noreferrer">Devon Gadzinski</a>, <a href="https://www.remiwedin.com/" target="_blank" rel="noopener noreferrer">Remi Wedin</a>, <a href="https://www.artstation.com/meisenhu" target="_blank" rel="noopener noreferrer">Meisen Hu</a>, <a href="https://adenapark.com/" target="_blank" rel="noopener noreferrer">Adena Park</a>, and <a href="https://lnaia312.wixsite.com/alisa-chen" target="_blank" rel="noopener noreferrer">Alisa Chen</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">3D ANIMATOR</div>
+                <div className="content_answer"><a href="https://www.artstation.com/josephjacobs" target="_blank" rel="noopener noreferrer">Joe Jacobs</a></div>
+            </div>
+            <div className="content_faq">
+                <div className="content_question">MARKETING</div>
+                <div className="content_answer">Jake Hirsch</div>
+            </div>
           </div>
           <div className="footer">
             <div className="footer_nav">
               <a href="/" className="content">HOME</a>
-              <a href="/faq" className="content">FAQ</a>
+              <a href="https://www.detourbus.com/faqs" className="content">FAQ</a>
               <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
               <a href="https://www.detourbus.com/blog" className="content">BLOG</a>
               <a href="/" className="content">ACCESSIBILITY</a>
@@ -101,4 +135,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Team;

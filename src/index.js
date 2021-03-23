@@ -5,6 +5,7 @@ import './index.css';
 
 import Home from './Home';
 import FAQ from './FAQ';
+import Team from './Team';
 
 
 ReactDOM.render((
@@ -16,6 +17,9 @@ ReactDOM.render((
           } /> 
           <Route path="/faq" render={() =>
               <FAQ/> 
+          } /> 
+          <Route path="/team" render={() =>
+              <Team/> 
           } /> 
           <Route path="/" render={() =>
               // 404 page
