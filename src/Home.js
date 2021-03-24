@@ -7,27 +7,30 @@ import Draggable from 'react-draggable';
 
 function Home() {
   const [mailingListValue, setMailingListValue] = useState('')
-  const [road, setRoad] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)}, {x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)}])
+  const [road, setRoad] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}, {x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}])
   const [roadCombined, setRoadCombined] = useState([{x: 0, y: 0}, {x: 100, y: 100}])
 
 
   function dragRoad(e, data, index) {
+    let newArray = [...road];
+    newArray[index].x = data.x;
+    newArray[index].y = data.y;
+    setRoad(newArray)
+  }
+
+  function stopDragRoad(e, data, index) {
     for (var i = 0; i < road.length; i++) {
       if (index !== i) {
         if ((Math.abs(data.x - road[i].x) < 58) && (Math.abs(data.y - road[i].y) < 33)) {
           let newArray = [...road];
           newArray[index].x = road[i].x + 58;
           newArray[index].y = road[i].y;
-          // newArray.push({x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)})
+          newArray.push({x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)})
           setRoad(newArray);
           return;
         }
       }
     }
-    let newArray = [...road];
-    newArray[index].x = data.x;
-    newArray[index].y = data.y;
-    setRoad(newArray)
   }
 
   return (
@@ -38,7 +41,7 @@ function Home() {
             <img src={Logo.default} className="logo" alt="Detour Bus Logo" />
             <div className="road">
               {road.map((key, index) => 
-                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)}>
+                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, index)}>
                   <img src={Road.default} className="road_img" alt="Draggable Road Piece" />
                 </Draggable>)
               }
