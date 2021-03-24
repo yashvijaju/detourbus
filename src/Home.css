@@ -37,6 +37,16 @@
   width: auto; 
 }
 
+.road {
+  position: absolute;
+  width: 90vw;
+}
+
+.road_img {
+  position: absolute;
+  cursor: pointer;
+}
+
 .content {
   font-family: neue-kabel;
   font-style: normal;

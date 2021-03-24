@@ -1,9 +1,34 @@
 import { useState } from 'react';
-import { Logo, FooterPoster, Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube } from './assets/index.js'
+import { Logo, FooterPoster, Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube, Road, } from './assets/index.js'
 import './Home.css';
+// libraries
+import Draggable from 'react-draggable';
+
 
 function Home() {
   const [mailingListValue, setMailingListValue] = useState('')
+  const [road, setRoad] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)}, {x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)}])
+  const [roadCombined, setRoadCombined] = useState([{x: 0, y: 0}, {x: 100, y: 100}])
+
+
+  function dragRoad(e, data, index) {
+    for (var i = 0; i < road.length; i++) {
+      if (index !== i) {
+        if ((Math.abs(data.x - road[i].x) < 58) && (Math.abs(data.y - road[i].y) < 33)) {
+          let newArray = [...road];
+          newArray[index].x = road[i].x + 58;
+          newArray[index].y = road[i].y;
+          // newArray.push({x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)})
+          setRoad(newArray);
+          return;
+        }
+      }
+    }
+    let newArray = [...road];
+    newArray[index].x = data.x;
+    newArray[index].y = data.y;
+    setRoad(newArray)
+  }
 
   return (
     <div className="container_outer">
@@ -11,6 +36,13 @@ function Home() {
         <div className="container_inner">
           <div className="header">
             <img src={Logo.default} className="logo" alt="Detour Bus Logo" />
+            <div className="road">
+              {road.map((key, index) => 
+                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)}>
+                  <img src={Road.default} className="road_img" alt="Draggable Road Piece" />
+                </Draggable>)
+              }
+            </div>
           </div>
           <div className="content">
             Detour Bus is a casual VR game where players build ridiculous winding highways around themselves to take the dysfunctional Flowers family on a road trip across Post-Infrastructure America. Get in the construction groove to take on corrupt Senator Joseph McCarthief’s attempts to turn all freeways into pay-to-drive tunnels and reclaim your right to transportation.<br/>
