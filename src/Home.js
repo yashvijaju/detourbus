@@ -7,8 +7,8 @@ import Draggable from 'react-draggable';
 
 function Home() {
   const [mailingListValue, setMailingListValue] = useState('')
-  const [road, setRoad] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}, {x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}])
-  const [roadCombined, setRoadCombined] = useState([{x: 0, y: 0}, {x: 100, y: 100}])
+  const [road, setRoad] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}])
+  const [roadCombined, setRoadCombined] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}])
 
 
   function dragRoad(e, data, index) {
@@ -18,19 +18,36 @@ function Home() {
     setRoad(newArray)
   }
 
-  function stopDragRoad(e, data, index) {
-    for (var i = 0; i < road.length; i++) {
-      if (index !== i) {
-        if ((Math.abs(data.x - road[i].x) < 58) && (Math.abs(data.y - road[i].y) < 33)) {
+  function stopDragRoad(e, data, roadType) {
+    if (roadType === "single") {
+      for (var i = 0; i < roadCombined.length; i++) {
+        if ((Math.abs(data.x - roadCombined[i].x) < 58) && (Math.abs(data.y - roadCombined[i].y) < 33)) {
+          let newArray_ = [...roadCombined];
+          newArray_.push({x: roadCombined[i].x + 58, y: roadCombined[i].y})
+          setRoadCombined(newArray_);
+  
           let newArray = [...road];
-          newArray[index].x = road[i].x + 58;
-          newArray[index].y = road[i].y;
-          newArray.push({x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerWidth)})
+          newArray[0].x = Math.random() * 0.8 * window.innerWidth;
+          newArray[0].y = Math.random() * 0.2 * window.innerWidth;
           setRoad(newArray);
           return;
         }
       }
     }
+    else if (roadType === "combined") {
+    }
+  }
+
+  function dragCombinedRoad(e, data, index) {
+    let newArray_ = [...roadCombined];
+    let diffX = data.x - newArray_[index].x;
+    let diffY = data.y - newArray_[index].y;
+    
+    for (var i = 0; i < roadCombined.length; i++) {
+      newArray_[i].x = newArray_[i].x + diffX;
+      newArray_[i].y = newArray_[i].y + diffY;
+    }
+    setRoadCombined(newArray_)
   }
 
   return (
@@ -41,7 +58,12 @@ function Home() {
             <img src={Logo.default} className="logo" alt="Detour Bus Logo" />
             <div className="road">
               {road.map((key, index) => 
-                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, index)}>
+                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
+                  <img src={Road.default} className="road_img" alt="Draggable Road Piece" />
+                </Draggable>)
+              }
+              {roadCombined.map((key, index) => 
+                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "combined")}>
                   <img src={Road.default} className="road_img" alt="Draggable Road Piece" />
                 </Draggable>)
               }
