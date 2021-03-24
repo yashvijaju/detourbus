@@ -10,3 +10,4 @@ export const Twitter = require('./twitter.svg');
 export const YouTube = require('./youtube.svg');
 // roads
 export const Road = require('./road.svg');
+export const MiniBus = require('./minibus.svg');

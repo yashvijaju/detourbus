@@ -47,6 +47,16 @@
   cursor: pointer;
 }
 
+.minibus {
+  position: absolute;
+  animation: movebus 5s infinite;
+}
+
+@keyframes movebus {
+  from {transform: scale(1)}
+  to {transform: translateX(124px)}
+}
+
 .content {
   font-family: neue-kabel;
   font-style: normal;

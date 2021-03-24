@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Logo, FooterPoster, Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube, Road, } from './assets/index.js'
+import { Logo, FooterPoster, Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube, Road, MiniBus } from './assets/index.js'
 import './Home.css';
 // libraries
 import Draggable from 'react-draggable';
@@ -9,7 +9,7 @@ function Home() {
   const [mailingListValue, setMailingListValue] = useState('')
   const [road, setRoad] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}])
   const [roadCombined, setRoadCombined] = useState([{x: (Math.random() * 0.8 * window.innerWidth), y: (Math.random() * 0.2 * window.innerHeight)}])
-
+  const [showMiniBus, setShowMiniBus] = useState(false)
 
   function dragRoad(e, data, index) {
     let newArray = [...road];
@@ -30,11 +30,27 @@ function Home() {
           newArray[0].x = Math.random() * 0.8 * window.innerWidth;
           newArray[0].y = Math.random() * 0.2 * window.innerWidth;
           setRoad(newArray);
+          runBus();
           return;
         }
       }
     }
     else if (roadType === "combined") {
+      for (var j = 0; j < road.length; j++) {
+        // only adds road pieces at the end. to add throughout chain, run roadCombined[roadCombined.length-1].x in a for loop with i instead of roadCombined.length-1
+        if ((Math.abs(roadCombined[roadCombined.length-1].x - road[j].x) < 58) && (Math.abs(roadCombined[roadCombined.length-1].y - road[j].y) < 33)) {
+          let newArray_ = [...roadCombined];
+          newArray_.push({x: roadCombined[roadCombined.length-1].x + 58, y: roadCombined[roadCombined.length-1].y})
+          setRoadCombined(newArray_);
+  
+          let newArray = [...road];
+          newArray[0].x = Math.random() * 0.8 * window.innerWidth;
+          newArray[0].y = Math.random() * 0.2 * window.innerWidth;
+          setRoad(newArray);
+          runBus();
+          return;
+        }
+      }
     }
   }
 
@@ -48,6 +64,15 @@ function Home() {
       newArray_[i].y = newArray_[i].y + diffY;
     }
     setRoadCombined(newArray_)
+  }
+
+  function runBus() {
+    if (roadCombined.length % 3 === 0) {
+      setShowMiniBus(true)
+    }
+    else {
+      setShowMiniBus(false)
+    }
   }
 
   return (
@@ -67,6 +92,7 @@ function Home() {
                   <img src={Road.default} className="road_img" alt="Draggable Road Piece" />
                 </Draggable>)
               }
+              <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 23px)`, left: roadCombined[0].x}}/>
             </div>
           </div>
           <div className="content">
