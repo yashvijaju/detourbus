@@ -30,7 +30,7 @@ function Home() {
           newArray[0].x = Math.random() * 0.8 * window.innerWidth;
           newArray[0].y = Math.random() * 0.2 * window.innerWidth;
           setRoad(newArray);
-          runBus();
+          runBus(newArray_.length);
           return;
         }
       }
@@ -47,7 +47,7 @@ function Home() {
           newArray[0].x = Math.random() * 0.8 * window.innerWidth;
           newArray[0].y = Math.random() * 0.2 * window.innerWidth;
           setRoad(newArray);
-          runBus();
+          runBus(newArray_.length);
           return;
         }
       }
@@ -66,8 +66,8 @@ function Home() {
     setRoadCombined(newArray_)
   }
 
-  function runBus() {
-    if (roadCombined.length % 3 === 0) {
+  function runBus(length) {
+    if (length % 3 === 0) {
       setShowMiniBus(true)
     }
     else {

@@ -49,7 +49,8 @@
 
 .minibus {
   position: absolute;
-  animation: movebus 5s infinite;
+  animation: movebus 5s;
+  animation-fill-mode: forwards
 }
 
 @keyframes movebus {
