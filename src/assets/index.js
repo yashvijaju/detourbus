@@ -1,5 +1,5 @@
 export const Logo = require('./Logo.svg');
-export const FooterPoster = require('./FooterPoster.png');
+export const FooterPoster = require('./FooterPoster.svg');
 export const Oculus = require('./Oculus.svg');
 // social media
 export const Instagram = require('./instagram.svg');
@@ -10,4 +10,4 @@ export const Twitter = require('./twitter.svg');
 export const YouTube = require('./youtube.svg');
 // roads
 export const Road = require('./road.svg');
-export const MiniBus = require('./minibus.svg');
+export const MiniBus = require('./bus.svg');

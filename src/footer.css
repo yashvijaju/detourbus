@@ -1,0 +1,170 @@
+
+.footer_nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer_nav a {
+  text-decoration: none;
+}
+
+.footer_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5vh;
+}
+
+.footer .content {
+  text-align: left;
+  font-size: 20px;
+}
+
+.footer_row_mailinglist {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_row_mailinglist_container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5vh;
+  padding-bottom: 0.5vh;
+}
+
+.footer_row_mailinglist_input {
+  border-bottom: 1.5px solid black;
+  width: 60%;
+  margin-right: 1.5vw;
+}
+
+.footer_row_mailinglist_text {
+  background: transparent;
+  width: 80%;
+  border: none;
+  outline: transparent;
+  font-size: 20px;
+}
+
+.footer_row_mailinglist_text:focus {
+  background: transparent;
+  border: none;
+  outline: transparent;
+}
+
+
+.footer_row_mailinglist_text::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.footer_row_mailinglist_submit {
+  padding: 0.5vh 1vw;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.footer_row_mailinglist_divider {
+  border-top: 1px solid black;
+}
+
+.footer_row_contact {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_row_contact_row {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  margin-top: 1.5vh;
+}
+
+.footer_row_contact_row_icon, .footer_row_mailinglist_icon {
+  margin-right: 1vw;
+}
+
+.footer_row_caveat {
+  width: 60%;
+}
+
+.footer_row_socials {
+  width: 32%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer_row_oculuslogo {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer_row_oculuslogo .content {
+  margin-left: 1vw;
+}
+
+.footer_row_oculus {
+  width: 32%;
+}
+
+.footer_nav {
+  width: calc(100% + 4vw);
+  flex-wrap: wrap;
+  margin-left: -2vw;
+}
+
+.footer_nav .content {
+  padding: 0 2vw;
+}
+
+@media screen and (max-width: 1024px){
+  .footer_row_mailinglist, .footer_row_mailinglist_input, .footer_row_caveat, .footer_row_oculuslogo {
+    width: 55%;
+  }
+
+  .footer_row_contact, .footer_row_socials, .footer_row_oculus {
+    width: 37%;
+  }
+
+  .footer .content {
+    text-align: justify;
+  }  
+}
+
+
+@media screen and (max-width: 768px){
+  .footer_nav {
+    flex-wrap: wrap;
+  }
+
+  .footer_row_mailinglist, .footer_row_oculuslogo, .footer_row_oculus, .footer_row_caveat, .footer_row_socials, .footer_row_contact, .footer_row_mailinglist_input {
+    width: 100%;
+  }
+
+  .footer_row_oculuslogo .content, .footer_row_contact_row .content  {
+    margin-left: 3vw;
+  }
+
+  .footer .content {
+    text-align: justify;
+  }
+  
+  .footer_row_oculus, .footer_row_socials, .footer_row_contact {
+    margin-top: 5vh;
+  }
+
+  .footer_row_mailinglist_icon {
+    display: none;
+  }
+    
+  .footer_row {
+    flex-direction: column;
+  }
+}
