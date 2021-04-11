@@ -109,9 +109,11 @@ function Home() {
             <iframe 
               src="https://www.youtube.com/embed/eVtKsgXyZd0"
               title="YouTube video player" 
-              frameborder="0" 
+              frameborder="0"
+              style={{borderColor: 'black'}} 
               className="youtube_embed"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             ></iframe>
           </div>
           <div className="footer">
