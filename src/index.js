@@ -15,10 +15,10 @@ ReactDOM.render((
           <Route exact path="/" render={() =>
               <Home/> 
           } /> 
-          <Route path="/faq" render={() =>
+          <Route exact path="/faq" render={() =>
               <FAQ/> 
           } /> 
-          <Route path="/team" render={() =>
+          <Route exact path="/team" render={() =>
               <Team/> 
           } /> 
           <Route path="/" render={() =>
