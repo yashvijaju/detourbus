@@ -2,6 +2,7 @@
   height: 100vh;
   width: 100vw;
   overflow-y: scroll;
+  overflow-x: hidden;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 
@@ -46,20 +47,33 @@
   height: 0;
 }
 
+.road_mobile {
+  position: relative;
+  top: -20vh;
+  width: 90vw;
+  height: 0;
+  display: none;
+}
+
 .road_img {
   position: absolute;
   cursor: pointer;
+  width: 200px;
+  height: 185px;
 }
 
 .minibus {
   position: absolute;
+  offset-path: path("M0,157.3c0,0,77.2-1.6,81.3,0.3c0,0,67.1,6,65.1,80.9c0,0,5,57,47,73.9c0,0,42.4,17.7,67.7-45.2 c0,0,8.8-12.3,7.6-42.1c0,0,0.7-44.8,46.7-63.3c0,0,8.5-7.1,92.8-4.3c0,0,51.5,1.9,48.9-54.7c0,0,8.8-118.9,111.1-99.2 c0,0,59.8,17.3,66.5,105c0,0-1,60.4,69.4,48.5l52.2,0.5");
   animation: movebus 5s;
   animation-fill-mode: forwards
 }
 
 @keyframes movebus {
-  from {transform: scale(1)}
-  to {transform: translateX(124px)}
+  100% { 
+    motion-offset: 100%;
+    offset-distance: 100%;
+  }
 }
 
 .content {
@@ -108,5 +122,26 @@
 }
 
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px){  
+  .road {
+    display: none;
+  }
+
+  .road_mobile {
+    display: block;
+  }
+  
+  .road_img {
+    position: absolute;
+    cursor: pointer;
+    width: 50px;
+    height: 46.25px;
+  }
+
+  
+  .minibus {
+    offset-path: path("M0,40.5c0,0,19.3-0.4,20.3,0.1c0,0,16.8,1.5,16.3,20.2c0,0,1.2,14.2,11.7,18.5c0,0,10.6,4.4,16.9-11.3 c0,0,2.2-3.1,1.9-10.5c0,0,0.2-11.2,11.7-15.8c0,0,2.1-1.8,23.2-1.1c0,0,12.9,0.5,12.2-13.7c0,0,2.2-29.7,27.8-24.8 c0,0,14.9,4.3,16.6,26.2c0,0-0.2,15.1,17.3,12.1l13,0.1");
+    width: 30px;
+    height: auto;
+  }
 }
