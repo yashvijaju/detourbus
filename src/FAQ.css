@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 60vw;
+    max-width: 800px;
     margin-bottom: 5vh;
 }
 .content_question {

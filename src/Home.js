@@ -34,13 +34,14 @@ function Home() {
 
   function stopDragRoad(e, data, roadType) {
     if (roadType === "single") {
-      for (var i = 0; i < roadCombined.length; i++) {
-        if ((Math.abs(data.x - roadCombined[i].x) < 200) && (Math.abs(data.y - roadCombined[i].y) < 185)) {
+      // for (var i = 0; i < roadCombined.length; i++) {
+        // if ((Math.abs(data.x - roadCombined[i].x) < 200) && (Math.abs(data.y - roadCombined[i].y) < 185)) {
+        if ((Math.abs(data.x - roadCombined[roadCombined.length-1].x) < 200) && (Math.abs(data.y - roadCombined[roadCombined.length-1].y) < 185)) {
           let newArray_ = [...roadCombined];
           if (newArray_.length === 4) {
             newArray_.shift()
           }
-          newArray_.push({x: roadCombined[i].x + roadSetAnglesX[roadSetIndex], y: roadCombined[i].y + roadSetAnglesY[roadSetIndex], img: road[0].img})
+          newArray_.push({x: roadCombined[roadCombined.length-1].x + roadSetAnglesX[roadSetIndex], y: roadCombined[roadCombined.length-1].y + roadSetAnglesY[roadSetIndex], img: road[0].img})
           setRoadCombined(newArray_);
   
           let newArray = [...road];
@@ -64,7 +65,7 @@ function Home() {
           setRoad(newArray);
           return;
         }
-      }
+      // }
     }
     else if (roadType === "combined") {
       for (var j = 0; j < road.length; j++) {
@@ -197,16 +198,16 @@ function Home() {
     <div className="container_outer">
       <div className="container">
         <div className="container_inner">
-          <div className="header">
+          <div className="header" onDragOver={(e)=>e.preventDefault()}>
             <img src={Logo.default} className="logo" alt="Detour Bus Logo"/>
             <div className="road">
               {road.map((key, index) => 
-                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
+                <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
                   <img src={key.img} className="road_img" alt="Draggable Road Piece"/>
                 </Draggable>)
               }
               {roadCombined.map((key, index) => 
-                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "combined")}>
+                <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "combined")}>
                   <img src={key.img} className="road_img" alt="Draggable Road Piece"/>
                 </Draggable>)
               }
