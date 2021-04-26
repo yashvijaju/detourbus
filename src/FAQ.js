@@ -9,7 +9,7 @@ function FAQ() {
   return (
     <div className="container_outer">
       <div className="container">
-        <div className="container_inner">
+        <div className="container_inner_faq">
           <div className="header">
             <a href="/">
               <img src={Logo.default} className="logo" alt="Detour Bus Logo" />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Oculus, Instagram, Mail, Presskit, Twitch, Twitter, YouTube } from './assets/index.js'
+import { OculusStock, Instagram, Mail, Presskit, Twitch, Twitter, YouTube } from './assets/index.js'
 import './footer.css';
 
 function Footer() {
@@ -41,10 +41,10 @@ function Footer() {
                     <img src={Mail.default} alt="Mail" className="footer_row_contact_row_icon"/> 
                     <div className="content">detourbus@gmail.com</div>
                   </a>
-                  <a href="mailto:press@detourbus.com" className="footer_row_contact_row">
+                  {/* <a href="mailto:press@detourbus.com" className="footer_row_contact_row">
                     <img src={Presskit.default} alt="Presskit" className="footer_row_contact_row_icon"/> 
                     <div className="content">press@detourbus.com</div>
-                  </a>
+                  </a> */}
               </div>
             </div>
             <div className="footer_row" style={{alignItems: 'center'}}>
@@ -61,10 +61,10 @@ function Footer() {
             </div>
             <div className="footer_row" style={{alignItems: 'center'}}>
               <div className="footer_row_oculuslogo">
-                <img src={Oculus.default} className="footer_row_oculuslogo_logo" alt="Detour Bus x Oculus" />
-                <div className="content">©2020 Late Stage Interactive LLC</div>
+                <div className="content">©2021 Late Stage Interactive LLC</div>
               </div>
               <div className="footer_row_oculus">
+                <img src={OculusStock.default} className="footer_row_oculuslogo_logo" alt="Oculus" />
                 <div className="content">Created in parternship with Oculus</div>
               </div>
             </div>

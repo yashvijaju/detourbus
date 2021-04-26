@@ -83,7 +83,7 @@
   font-size: 25px;
   line-height: 30px;
   text-align: center;
-  color: #000000;
+  color: white;
 }
 
 .content_bold {
@@ -93,15 +93,16 @@
   font-size: 33px;
   line-height: 42px;
   text-align: center;
-  color: #000000;
+  color: white;
 }
 
 .youtube {
-  margin: 10vh 0 0;
+  margin: 5vh 0 0;
   width: 100%;
   padding-bottom: 56.25%;
   position: relative;
   border: 0.5vw solid black;
+  box-sizing: border-box;
 }
 
 .youtube_embed {
@@ -113,12 +114,13 @@
 }
 
 .footer {
-  margin: 15vh 0 10vh;
+  margin: 10vh 0 10vh;
 }
 
 .footer_poster {
   width: 100%;
   pointer-events: none;
+  margin-top: -2px;
 }
 
 

@@ -1,12 +1,22 @@
-.content_faq {
+.container_inner_faq {
+    width: 70vw;
+    max-width: 1200px;
+  }
+
+.content_faq, .content_team {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 60vw;
-    max-width: 800px;
+    width: 70vw;
+    max-width: 1200px;
     margin-bottom: 5vh;
 }
-.content_question {
+.content_team {
+    width: 60vw;
+    max-width: 800px;
+}
+
+.content_question, .content_title {
     width: 30%;
     font-family: neue-kabel;
     font-style: normal;
@@ -14,7 +24,11 @@
     font-size: 25px;
     line-height: 30px;
     text-align: left;
-    color: #000000;
+    color: white;
+}
+
+.content_title {
+    text-align: right;
 }
 
 .content_answer {
@@ -25,15 +39,15 @@
     font-size: 25px;
     line-height: 30px;
     text-align: left;
-    color: #000000;
+    color: white;
 }
 
 .content_answer a {
-    color: black;
+    color: white;
 }
 
 @media screen and (max-width: 768px){
-    .content_faq {
+    .content_faq, .content_team {
         flex-direction: column;
     }
     .content_question {
