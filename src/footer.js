@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { OculusStock, Instagram, Mail, Presskit, Twitch, Twitter, YouTube } from './assets/index.js'
+import { OculusStock, Instagram, Mail, /*Presskit,*/ Twitch, Twitter, YouTube } from './assets/index.js'
 import './footer.css';
 
 function Footer() {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Logo, FooterPoster, Road1, Road2, Road3, Road4, Road5, MiniBus } from './assets/index.js'
 import './Home.css';
 import Footer from './footer'
@@ -13,7 +13,7 @@ function Home() {
     img: Road2.default
   }])
   const [roadCombined, setRoadCombined] = useState([{
-    x: (Math.random() * 0.8 * window.innerWidth), 
+    x: (0), 
     y: (Math.random() * 0.2 * window.innerHeight),
     img: Road1.default
   }])
@@ -30,6 +30,12 @@ function Home() {
     newArray[index].x = data.x;
     newArray[index].y = data.y;
     setRoad(newArray)
+    console.log("x and y pos")
+    console.log('x:' + data.x + ' y:' + data.y)
+    console.log("temp array")
+    console.log(newArray)
+    // console.log("updated state array")
+    // console.log(road)
   }
 
   function stopDragRoad(e, data, roadType) {
@@ -203,12 +209,13 @@ function Home() {
             <div className="road">
               {road.map((key, index) => 
                 <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
-                  <img src={key.img} className="road_img" alt="Draggable Road Piece"/>
+                  <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat"}}/>
+                  {/* <img src={key.img} className="road_img" alt="Draggable Road Piece"/> */}
                 </Draggable>)
               }
               {roadCombined.map((key, index) => 
-                <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "combined")}>
-                  <img src={key.img} className="road_img" alt="Draggable Road Piece"/>
+                <Draggable disabled={true} key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "combined")}>
+                  <img src={key.img} className="road_img_disabled" alt="Draggable Road Piece"/>
                 </Draggable>)
               }
               <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 150px)`, left: roadCombined[0].x}}/>
@@ -216,12 +223,13 @@ function Home() {
             <div className="road_mobile">
               {road.map((key, index) => 
                 <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoadMobile(e, data, "single")}>
-                  <img src={key.img} className="road_img" alt="Draggable Road Piece"/>
+                  <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat"}}/>
+                  {/* <img src={key.img} className="road_img" alt="Draggable Road Piece"/> */}
                 </Draggable>)
               }
               {roadCombined.map((key, index) => 
-                <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoadMobile(e, data, "combined")}>
-                  <img src={key.img} className="road_img" alt="Draggable Road Piece"/>
+                <Draggable disabled={true} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoadMobile(e, data, "combined")}>
+                  <img src={key.img} className="road_img_disabled" alt="Draggable Road Piece"/>
                 </Draggable>)
               }
               <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 40px)`, left: roadCombined[0].x}}/>

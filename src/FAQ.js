@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Logo, FooterPoster} from './assets/index.js'
 import './Home.css';
 import Footer from './footer'
