@@ -25,6 +25,7 @@ function Home() {
   const [roadSetAnglesXMobile, setRoadSetAnglesXMobile] = useState([47.5, 48, 46.5, 48, 50])
   const [roadSetAnglesYMobile, setRoadSetAnglesYMobile] = useState([0.5, -39, 1.3, 37.5, 10])
   const [roadSetIndex, setRoadSetIndex] = useState(1)
+  const [minibusClassName, setMinibusClassName] = useState("minibus1")
 
   function dragRoad(e, data, index) {
     let newArray = [...road];
@@ -41,9 +42,25 @@ function Home() {
         if ((Math.abs(data.x - roadCombined[roadCombined.length-1].x) < 200) && (Math.abs(data.y - roadCombined[roadCombined.length-1].y) < 185)) {
           let newArray_ = [...roadCombined];
           // to delete old index
-          // if (newArray_.length === 4) {
+          // if (newArray_.length === 12) {
           //   newArray_.shift()
           // }
+          if (newArray_.length === 12) {
+            setMinibusClassName("minibus1")
+            setRoad([{
+              x: (Math.random() * 0.8 * window.innerWidth), 
+              y: (Math.random() * 0.2 * window.innerHeight),
+              img: Road2.default
+            }])
+            setRoadCombined([{
+              x: (0), 
+              y: (Math.random() * 0.4 * window.innerHeight) + 100,
+              img: Road1.default
+            }])
+            setRoadSetIndex(1)
+            setShowMiniBus(false)
+            return;
+          }
           newArray_.push({x: roadCombined[roadCombined.length-1].x + roadSetAnglesX[roadSetIndex], y: roadCombined[roadCombined.length-1].y + roadSetAnglesY[roadSetIndex], img: road[0].img})
           setRoadCombined(newArray_);
   
@@ -53,15 +70,21 @@ function Home() {
           if (roadSetIndex === 11) {
             newArray[0].img = roadSet[0];
             setRoadSetIndex(0);
-            runBus(4);
+            runBus(12);
+            setMinibusClassName("minibus3")
           }
           else {
             newArray[0].img = roadSet[roadSetIndex+1];
-            if (roadSetIndex === 2) {
+            if (roadSetIndex === 3) {
               runBus(4);
+              setMinibusClassName("minibus1")
+            }
+            else if (roadSetIndex === 7) {
+              runBus(8);
+              setMinibusClassName("minibus2")
             }
             else {
-              runBus(2);
+              runBus(1);
             }
             setRoadSetIndex(roadSetIndex+1);
           }
@@ -207,7 +230,6 @@ function Home() {
               {road.map((key, index) => 
                 <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
                   <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat", width: roadSetSize[roadSetIndex].x, height: roadSetSize[roadSetIndex].y}}/>
-                  {/* <img src={key.img} className="road_img" alt="Draggable Road Piece"/> */}
                 </Draggable>)
               }
               {roadCombined.map((key, index) => 
@@ -215,13 +237,12 @@ function Home() {
                   <img src={key.img} className="road_img_disabled" alt="Draggable Road Piece" style={{width: roadSetSize[index % 12].x, height: roadSetSize[index % 12].y}}/>
                 </Draggable>)
               }
-              <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 120px)`, left: roadCombined[0].x}}/>
+              <img src={MiniBus.default} className={minibusClassName} alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: (minibusClassName==="minibus1") ? `calc(${roadCombined[0].y}px - 0px)` : (minibusClassName==="minibus2") ? `calc(${roadCombined[4].y}px - 80px)` : `calc(${roadCombined[8].y}px - 15px)`, left: (minibusClassName==="minibus1") ? roadCombined[0].x : (minibusClassName==="minibus2") ? `calc(${roadCombined[4].x}px + 30px)` : roadCombined[8].x}}/>
             </div>
             <div className="road_mobile">
               {road.map((key, index) => 
                 <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoadMobile(e, data, "single")}>
                   <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat"}}/>
-                  {/* <img src={key.img} className="road_img" alt="Draggable Road Piece"/> */}
                 </Draggable>)
               }
               {roadCombined.map((key, index) => 
@@ -229,7 +250,7 @@ function Home() {
                   <img src={key.img} className="road_img_disabled" alt="Draggable Road Piece"/>
                 </Draggable>)
               }
-              <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 40px)`, left: roadCombined[0].x}}/>
+              <img src={MiniBus.default} className={minibusClassName} alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 40px)`, left: roadCombined[0].x}}/>
             </div>
           </div>
           <div className="content">

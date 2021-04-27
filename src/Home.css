@@ -76,6 +76,36 @@
   pointer-events: none;
 }
 
+.minibus1 {
+  position: absolute;
+  offset-path: path("M0,1l69.6,0c0,0,53.5,0.6,53.8,53.5c0,0-1,50.9,41,65.4c0,0,18.8,4,33.7-13.3");
+  animation: movebus 5s;
+  animation-fill-mode: forwards;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+.minibus2 {
+  position: absolute;
+  /* offset-path: path("M0,41.6l69.6,0c0,0,53.5,0.6,53.8,53.5c0,0-1,50.9,41,65.4c0,0,42.1,8.9,50.3-57.7c0,0-11-60.9,61.7-64.7 l57.7,0.4c0,0,30.9,2.4,35.6-36.3c0,0,0-0.7,0.1-2"); */
+  offset-path: path("M0.7,147.2c8.1-8.4,15.4-22.5,18.4-46.4c0,0-11-60.9,61.7-64.7l57.7,0.4c0,0,30.9,2.4,35.6-36.3");
+  animation: movebus 5s;
+  animation-fill-mode: forwards;
+  cursor: default;
+  pointer-events: none;
+}
+
+.minibus3 {
+  position: absolute;
+  /* offset-path: path("M0,122.3l69.6,0c0,0,53.5,0.6,53.8,53.5c0,0-1,50.9,41,65.4c0,0,42.1,8.9,50.3-57.7c0,0-11-60.9,61.7-64.7 l57.7,0.4c0,0,30.9,2.4,35.6-36.3c0,0,0.8-60.6,47.5-78.4c0,0,75.5-30,81.8,86.5c0,0,0.7,41.3,58.6,32l42.4,0.7"); */
+  offset-path: path("M1,82.9c0,0,0.8-60.6,47.5-78.4c0,0,75.5-30,81.8,86.5c0,0,0.5,29,34.7,32.9");
+  animation: movebus 5s;
+  animation-fill-mode: forwards;
+  cursor: default;
+  pointer-events: none;
+}
+
 @keyframes movebus {
   100% { 
     motion-offset: 100%;
