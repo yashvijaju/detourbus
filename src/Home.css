@@ -58,8 +58,8 @@
 .road_img, .road_img_disabled {
   position: absolute;
   cursor: pointer;
-  width: 200px;
-  height: 185px;
+  width: 100px;
+  height: 100px;
 }
 
 .road_img_disabled {
@@ -69,9 +69,11 @@
 
 .minibus {
   position: absolute;
-  offset-path: path("M0,157.3c0,0,77.2-1.6,81.3,0.3c0,0,67.1,6,65.1,80.9c0,0,5,57,47,73.9c0,0,42.4,17.7,67.7-45.2 c0,0,8.8-12.3,7.6-42.1c0,0,0.7-44.8,46.7-63.3c0,0,8.5-7.1,92.8-4.3c0,0,51.5,1.9,48.9-54.7c0,0,8.8-118.9,111.1-99.2 c0,0,59.8,17.3,66.5,105c0,0-1,60.4,69.4,48.5l52.2,0.5");
+  offset-path: path("M0,122.3l69.6,0c0,0,53.5,0.6,53.8,53.5c0,0-1,50.9,41,65.4c0,0,42.1,8.9,50.3-57.7c0,0-11-60.9,61.7-64.7 l57.7,0.4c0,0,30.9,2.4,35.6-36.3c0,0,0.8-60.6,47.5-78.4c0,0,75.5-30,81.8,86.5c0,0,0.7,41.3,58.6,32l42.4,0.7");
   animation: movebus 5s;
-  animation-fill-mode: forwards
+  animation-fill-mode: forwards;
+  cursor: default;
+  pointer-events: none;
 }
 
 @keyframes movebus {
@@ -142,7 +144,7 @@
     position: absolute;
     cursor: pointer;
     width: 50px;
-    height: 46.25px;
+    height: auto;
   }
 
   

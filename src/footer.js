@@ -5,6 +5,31 @@ import './footer.css';
 function Footer() {
     const [mailingListValue, setMailingListValue] = useState('');
 
+    function subscribeUser() {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded', //application/json
+          'Authorization': `Bearer d76e0ca19373ff26fa85ff38c8f75913-us4`,
+        },
+        body: JSON.stringify({
+          email_address: mailingListValue,
+          status: "subscribed",
+        })
+      };
+
+      fetch("https://us4.api.mailchimp.com/3.0/lists/{list_id}/members?skip_merge_validation=false", requestOptions)
+      .then(res => res.json())
+      .then(
+        (res) => {
+          console.log(res)
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+    }
+
     return (
         <>
             <div className="footer_nav">
@@ -25,7 +50,7 @@ function Footer() {
                   </div>
                   <div className="footer_row_mailinglist_submit" onClick={() => {
                     if (mailingListValue) {
-
+                      subscribeUser()
                     }
                     else {
                       alert("Please enter a valid email address.")

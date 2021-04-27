@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Logo, FooterPoster, Road1, Road2, Road3, Road4, Road5, MiniBus } from './assets/index.js'
+import { Logo, FooterPoster, Road1, Road2, Road3, Road4, Road5, Road6, Road7, Road8, Road9, Road10, Road11, Road12, MiniBus } from './assets/index.js'
 import './Home.css';
 import Footer from './footer'
 // libraries
@@ -14,28 +14,24 @@ function Home() {
   }])
   const [roadCombined, setRoadCombined] = useState([{
     x: (0), 
-    y: (Math.random() * 0.2 * window.innerHeight),
+    y: (Math.random() * 0.4 * window.innerHeight) + 100,
     img: Road1.default
   }])
   const [showMiniBus, setShowMiniBus] = useState(false)
-  const [roadSet, setRoadSet] = useState([Road2.default, Road3.default, Road4.default, Road5.default])
-  const [roadSetAnglesX, setRoadSetAnglesX] = useState([190, 192, 186, 192, 192])
-  const [roadSetAnglesY, setRoadSetAnglesY] = useState([2, -158, 5, 152, 10])
+  const [roadSet, setRoadSet] = useState([Road1.default, Road2.default, Road3.default, Road4.default, Road5.default, Road6.default, Road7.default, Road8.default, Road9.default, Road10.default, Road11.default, Road12.default])
+  const [roadSetSize, setRoadSetSize] = useState([{x:"76.79px", y:"21.01px"},{x:"54.88px", y:"61.75px"},{x:"43.96px", y:"69.75px"},{x:"82.20px", y:"82.38px"},{x:"79.10px", y:"80.95px"},{x:"64.22px", y:"57.67px"},{x:"76.79px", y:"21.01px"},{x:"54.88px", y:"61.75px"},{x:"43.96px", y:"69.75px"},{x:"82.20px", y:"82.38px"},{x:"79.10px", y:"80.95px"},{x:"64.22px", y:"57.67px"},{x:"76.79px", y:"21.01px"}])
+  const [roadSetAnglesX, setRoadSetAnglesX] = useState([59, 72, 35, 30, 48, 37, 59, 72, 35, 30, 48, 36.5])
+  const [roadSetAnglesY, setRoadSetAnglesY] = useState([35, 0, 57, 28, -40, -48, 2, -41, -65, -40, 41, 70])
   const [roadSetAnglesXMobile, setRoadSetAnglesXMobile] = useState([47.5, 48, 46.5, 48, 50])
   const [roadSetAnglesYMobile, setRoadSetAnglesYMobile] = useState([0.5, -39, 1.3, 37.5, 10])
-  const [roadSetIndex, setRoadSetIndex] = useState(0)
+  const [roadSetIndex, setRoadSetIndex] = useState(1)
 
   function dragRoad(e, data, index) {
     let newArray = [...road];
     newArray[index].x = data.x;
     newArray[index].y = data.y;
     setRoad(newArray)
-    console.log("x and y pos")
-    console.log('x:' + data.x + ' y:' + data.y)
-    console.log("temp array")
-    console.log(newArray)
-    // console.log("updated state array")
-    // console.log(road)
+    stopDragRoad(e,data,"single")
   }
 
   function stopDragRoad(e, data, roadType) {
@@ -44,19 +40,20 @@ function Home() {
         // if ((Math.abs(data.x - roadCombined[i].x) < 200) && (Math.abs(data.y - roadCombined[i].y) < 185)) {
         if ((Math.abs(data.x - roadCombined[roadCombined.length-1].x) < 200) && (Math.abs(data.y - roadCombined[roadCombined.length-1].y) < 185)) {
           let newArray_ = [...roadCombined];
-          if (newArray_.length === 4) {
-            newArray_.shift()
-          }
+          // to delete old index
+          // if (newArray_.length === 4) {
+          //   newArray_.shift()
+          // }
           newArray_.push({x: roadCombined[roadCombined.length-1].x + roadSetAnglesX[roadSetIndex], y: roadCombined[roadCombined.length-1].y + roadSetAnglesY[roadSetIndex], img: road[0].img})
           setRoadCombined(newArray_);
   
           let newArray = [...road];
           newArray[0].x = Math.random() * 0.8 * window.innerWidth;
           newArray[0].y = Math.random() * 0.2 * window.innerWidth;
-          if (roadSetIndex === 3) {
+          if (roadSetIndex === 11) {
             newArray[0].img = roadSet[0];
             setRoadSetIndex(0);
-            runBus(2);
+            runBus(4);
           }
           else {
             newArray[0].img = roadSet[roadSetIndex+1];
@@ -209,16 +206,16 @@ function Home() {
             <div className="road">
               {road.map((key, index) => 
                 <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
-                  <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat"}}/>
+                  <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat", width: roadSetSize[roadSetIndex].x, height: roadSetSize[roadSetIndex].y}}/>
                   {/* <img src={key.img} className="road_img" alt="Draggable Road Piece"/> */}
                 </Draggable>)
               }
               {roadCombined.map((key, index) => 
                 <Draggable disabled={true} key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragCombinedRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "combined")}>
-                  <img src={key.img} className="road_img_disabled" alt="Draggable Road Piece"/>
+                  <img src={key.img} className="road_img_disabled" alt="Draggable Road Piece" style={{width: roadSetSize[index % 12].x, height: roadSetSize[index % 12].y}}/>
                 </Draggable>)
               }
-              <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 150px)`, left: roadCombined[0].x}}/>
+              <img src={MiniBus.default} className="minibus" alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 120px)`, left: roadCombined[0].x}}/>
             </div>
             <div className="road_mobile">
               {road.map((key, index) => 
