@@ -1,5 +1,5 @@
 export const Logo = require('./Logo.svg');
-export const FooterPoster = require('./FooterPoster.svg');
+export const FooterPoster = require('./FooterPosterTransparent.svg');
 export const Oculus = require('./Oculus.svg');
 export const OculusStock = require('./OculusStock.svg');
 // social media

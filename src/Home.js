@@ -239,7 +239,7 @@ function Home() {
               }
               <img src={MiniBus.default} className={minibusClassName} alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: (minibusClassName==="minibus1") ? `calc(${roadCombined[0].y}px - 0px)` : (minibusClassName==="minibus2") ? `calc(${roadCombined[4].y}px - 80px)` : `calc(${roadCombined[8].y}px - 15px)`, left: (minibusClassName==="minibus1") ? roadCombined[0].x : (minibusClassName==="minibus2") ? `calc(${roadCombined[4].x}px + 30px)` : roadCombined[8].x}}/>
             </div>
-            <div className="road_mobile">
+            {/* <div className="road_mobile">
               {road.map((key, index) => 
                 <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoadMobile(e, data, "single")}>
                   <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat"}}/>
@@ -251,7 +251,7 @@ function Home() {
                 </Draggable>)
               }
               <img src={MiniBus.default} className={minibusClassName} alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: `calc(${roadCombined[0].y}px - 40px)`, left: roadCombined[0].x}}/>
-            </div>
+            </div> */}
           </div>
           <div className="content">
             Detour Bus is a casual VR game where players build ridiculous winding highways around themselves to take the dysfunctional Flowers family on a road trip across Post-Infrastructure America. Get in the construction groove to take on corrupt Senator Joseph McCarthief’s attempts to turn all freeways into pay-to-drive tunnels and reclaim your right to transportation.<br/>
@@ -278,8 +278,8 @@ function Home() {
             <Footer/>
           </div>
         </div>
+        <img src={FooterPoster.default} className="footer_poster" alt="Detour Bus Footer Poster" />
       </div>
-      <img src={FooterPoster.default} className="footer_poster" alt="Detour Bus Footer Poster" />
     </div>
   );
 }

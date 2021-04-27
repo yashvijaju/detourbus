@@ -53,8 +53,8 @@ function FAQ() {
             <Footer/>
           </div>
         </div>
+        <img src={FooterPoster.default} className="footer_poster" alt="Detour Bus Footer Poster" />
       </div>
-      <img src={FooterPoster.default} className="footer_poster" alt="Detour Bus Footer Poster" />
     </div>
   );
 }

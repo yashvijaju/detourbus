@@ -158,8 +158,15 @@
     margin-left: 3vw;
   }
 
-  .footer .content {
+  .footer .content, .footer_row_mailinglist_submit {
     text-align: justify;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .footer_row_mailinglist_text {
+    font-size: 11px;
+    line-height: 20px;
   }
   
   .footer_row_oculus, .footer_row_socials, .footer_row_contact {
@@ -172,5 +179,10 @@
     
   .footer_row {
     flex-direction: column;
+  }
+  
+  .footer_row_oculuslogo_logo {
+    height: 20px;
+    width: auto;
   }
 }
