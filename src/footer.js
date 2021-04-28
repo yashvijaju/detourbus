@@ -18,7 +18,7 @@ function Footer() {
         })
       };
 
-      fetch("https://us4.api.mailchimp.com/3.0/lists/{list_id}/members?skip_merge_validation=false", requestOptions)
+      fetch("https://us4.api.mailchimp.com/3.0/lists/b40357c424/members?skip_merge_validation=false", requestOptions)
       .then(res => res.json())
       .then(
         (res) => {
