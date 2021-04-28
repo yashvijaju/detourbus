@@ -4,6 +4,7 @@ import './footer.css';
 
 function Footer() {
     const [mailingListValue, setMailingListValue] = useState('');
+    const [subscribed, setSubscribed] = useState(false);
 
     function subscribeUser() {
       const requestOptions = {
@@ -22,10 +23,13 @@ function Footer() {
       .then(res => res.json())
       .then(
         (res) => {
-          console.log(res)
+          console.log(res);
+          setMailingListValue("subscribed!");
+          setSubscribed(true)
         },
         (error) => {
-          console.log(error)
+          console.log(error);
+          alert("Please enter a valid email address.")
         }
       )
     }
@@ -48,16 +52,23 @@ function Footer() {
                     <img src={Mail.default} alt="Mail" className="footer_row_mailinglist_icon"/> 
                     <input className="footer_row_mailinglist_text" type="text" id="fname" name="fname" placeholder="johndoe@gmail.com" value={mailingListValue} onChange={(e) => setMailingListValue(e.target.value)}/>
                   </div>
-                  <div className="footer_row_mailinglist_submit" onClick={() => {
-                    if (mailingListValue) {
-                      subscribeUser()
-                    }
-                    else {
-                      alert("Please enter a valid email address.")
-                    }
-                  }}>
-                    SUBSCRIBE
-                  </div>
+                  {!subscribed &&
+                    <div className="footer_row_mailinglist_submit" onClick={() => {
+                      if (mailingListValue) {
+                        subscribeUser()
+                      }
+                      else {
+                        alert("Please enter a valid email address.")
+                      }
+                    }}>
+                      SUBSCRIBE
+                    </div>
+                  }
+                  {subscribed &&
+                    <div className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>
+                      SUBSCRIBED!
+                    </div>
+                  }
                 </div>
               </div>
               <div className="footer_row_contact">

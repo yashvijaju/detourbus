@@ -39,7 +39,7 @@ function Home() {
     if (roadType === "single") {
       // for (var i = 0; i < roadCombined.length; i++) {
         // if ((Math.abs(data.x - roadCombined[i].x) < 200) && (Math.abs(data.y - roadCombined[i].y) < 185)) {
-        if ((Math.abs(data.x - roadCombined[roadCombined.length-1].x) < 200) && (Math.abs(data.y - roadCombined[roadCombined.length-1].y) < 185)) {
+        if ((Math.abs(data.x - roadCombined[roadCombined.length-1].x) < 100) && (Math.abs(data.y - roadCombined[roadCombined.length-1].y) < 100)) {
           let newArray_ = [...roadCombined];
           // to delete old index
           // if (newArray_.length === 12) {
