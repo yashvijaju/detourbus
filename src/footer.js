@@ -1,39 +1,39 @@
 import { useState } from 'react';
 import { OculusStock, Instagram, Mail, /*Presskit,*/ Twitch, Twitter, YouTube } from './assets/index.js'
+import MailchimpSubscribe from "react-mailchimp-subscribe"
 import './footer.css';
 
+const SimpleForm = ({ status, message, onSubmitted }) => {
+  let input;
+  const submit = () =>
+    input &&
+    input.value.indexOf("@") > -1 &&
+    onSubmitted({
+      EMAIL: input.value
+    });
+
+    console.log(status)
+  return (
+    <div className="footer_row_mailinglist_container">
+      <div className="footer_row_mailinglist_input">
+        <img src={Mail.default} alt="Mail" className="footer_row_mailinglist_icon"/> 
+        <input
+          className="footer_row_mailinglist_text"
+          ref={node => (input = node)}
+          type="email"
+          placeholder="johndoe@gmail.com"
+        />
+      </div>
+      {status === "sending" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Sending</button>}
+      {status === "error" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Error</button>}
+      {status === "success" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Submitted</button>}
+      {status === null && <button className="footer_row_mailinglist_submit" onClick={submit}>Submit</button>}
+
+    </div>
+  );
+};
+
 function Footer() {
-    const [mailingListValue, setMailingListValue] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
-
-    function subscribeUser() {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/x-www-form-urlencoded', //application/json
-          'Authorization': `Bearer d76e0ca19373ff26fa85ff38c8f75913-us4`,
-        },
-        body: JSON.stringify({
-          email_address: mailingListValue,
-          status: "subscribed",
-        })
-      };
-
-      fetch("https://us4.api.mailchimp.com/3.0/lists/b40357c424/members?skip_merge_validation=false", requestOptions)
-      .then(res => res.json())
-      .then(
-        (res) => {
-          console.log(res);
-          setMailingListValue("subscribed!");
-          setSubscribed(true)
-        },
-        (error) => {
-          console.log(error);
-          alert("Please enter a valid email address.")
-        }
-      )
-    }
-
     return (
         <>
             <div className="footer_nav">
@@ -44,32 +44,25 @@ function Footer() {
               <a href="/team" className="content">TEAM</a>
               <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
             </div>
+            <div className="footer_nav_mobile">
+              <a href="/" className="content">HOME</a>
+              <a href="/faq" className="content">FAQ</a>
+              <a href="/" className="content">ACCESSIBILITY</a>
+            </div>
+            <div className="footer_nav_mobile">
+              <a href="https://www.detourbus.com/blog" className="content">BLOG</a>
+              <a href="/team" className="content">TEAM</a>
+              <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
+            </div>
             <div className="footer_row">
               <div className="footer_row_mailinglist">
                 <div className="content">HOP ON BOARD THE DETOUR BUS MAILING LIST!</div>
-                <div className="footer_row_mailinglist_container">
-                  <div className="footer_row_mailinglist_input">
-                    <img src={Mail.default} alt="Mail" className="footer_row_mailinglist_icon"/> 
-                    <input className="footer_row_mailinglist_text" type="text" id="fname" name="fname" placeholder="johndoe@gmail.com" value={mailingListValue} onChange={(e) => setMailingListValue(e.target.value)}/>
-                  </div>
-                  {!subscribed &&
-                    <div className="footer_row_mailinglist_submit" onClick={() => {
-                      if (mailingListValue) {
-                        subscribeUser()
-                      }
-                      else {
-                        alert("Please enter a valid email address.")
-                      }
-                    }}>
-                      SUBSCRIBE
-                    </div>
-                  }
-                  {subscribed &&
-                    <div className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>
-                      SUBSCRIBED!
-                    </div>
-                  }
-                </div>
+                <MailchimpSubscribe
+                  url="https://detourbus.us4.list-manage.com/subscribe/post?u=cc5086d366a5bc0ed4f3d9f64&amp;id=b40357c424"
+                  render={({ subscribe, status, message }) => (
+                      <SimpleForm onSubmitted={formData => subscribe(formData)} status={status} message={message}/>
+                  )}
+                />
               </div>
               <div className="footer_row_contact">
                 <div className="content">CONTACT US</div>
