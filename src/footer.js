@@ -5,28 +5,33 @@ import './footer.css';
 
 const SimpleForm = ({ status, message, onSubmitted }) => {
   let input;
-  const submit = () =>
+  const submit = () => {
     input &&
     input.value.indexOf("@") > -1 &&
     onSubmitted({
       EMAIL: input.value
     });
+    document.getElementById("subscribe_text_id").placeholder = input.value;
+    document.getElementById("subscribe_text_id").value = "";
 
-    console.log(status)
+  }
+
+  console.log(status)
   return (
     <div className="footer_row_mailinglist_container">
       <div className="footer_row_mailinglist_input">
         <img src={Mail.default} alt="Mail" className="footer_row_mailinglist_icon"/> 
         <input
           className="footer_row_mailinglist_text"
+          id="subscribe_text_id"
           ref={node => (input = node)}
           type="email"
           placeholder="johndoe@gmail.com"
         />
       </div>
       {status === "sending" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Sending</button>}
-      {status === "error" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Error</button>}
-      {status === "success" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Submitted</button>}
+      {status === "error" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}} onClick={submit}>Error</button>}
+      {status === "success" && <button className="footer_row_mailinglist_submit" style={{cursor: "not-allowed"}}>Submitted!</button>}
       {status === null && <button className="footer_row_mailinglist_submit" onClick={submit}>Submit</button>}
 
     </div>
