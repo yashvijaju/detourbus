@@ -44,20 +44,20 @@ function Footer() {
             <div className="footer_nav">
               <a href="/" className="content">HOME</a>
               <a href="/faq" className="content">FAQ</a>
-              <a href="https://www.detourbus.com/blog" className="content">BLOG</a>
-              <a href="/" className="content">ACCESSIBILITY</a>
+              <a href="https://www.detourbus.com/blog" target="_blank" rel="noreferrer noopener" className="content">BLOG</a>
+              <a href="/accessibility" className="content">ACCESSIBILITY</a>
               <a href="/team" className="content">TEAM</a>
-              <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
+              <a href="https://www.detourbus.com/press" target="_blank" rel="noreferrer noopener" className="content">PRESSKIT</a>
             </div>
             <div className="footer_nav_mobile">
               <a href="/" className="content">HOME</a>
               <a href="/faq" className="content">FAQ</a>
-              <a href="/" className="content">ACCESSIBILITY</a>
+              <a href="/accessibility" className="content">ACCESSIBILITY</a>
             </div>
             <div className="footer_nav_mobile">
-              <a href="https://www.detourbus.com/blog" className="content">BLOG</a>
+              <a href="https://www.detourbus.com/blog" target="_blank" rel="noreferrer noopener" className="content">BLOG</a>
               <a href="/team" className="content">TEAM</a>
-              <a href="https://www.detourbus.com/press" className="content">PRESSKIT</a>
+              <a href="https://www.detourbus.com/press" target="_blank" rel="noreferrer noopener" className="content">PRESSKIT</a>
             </div>
             <div className="footer_row">
               <div className="footer_row_mailinglist">

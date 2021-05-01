@@ -6,7 +6,7 @@ import './index.css';
 import Home from './Home';
 import FAQ from './FAQ';
 import Team from './Team';
-
+import Accessibility from './Accessibility';
 
 ReactDOM.render((
   <React.StrictMode>
@@ -20,6 +20,9 @@ ReactDOM.render((
           } /> 
           <Route exact path="/team" render={() =>
               <Team/> 
+          } /> 
+          <Route exact path="/accessibility" render={() =>
+              <Accessibility/> 
           } /> 
           <Route path="/" render={() =>
               // 404 page
