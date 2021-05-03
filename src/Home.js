@@ -226,7 +226,8 @@ function Home() {
         <div className="container_inner">
           <div className="header" onDragOver={(e)=>e.preventDefault()}>
             <img src={Logo.default} className="logo" alt="Detour Bus Logo"/>
-            <div className="road">
+      
+           {/* <div className="road">
               {road.map((key, index) => 
                 <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
                   <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat", width: roadSetSize[roadSetIndex].x, height: roadSetSize[roadSetIndex].y}}/>
@@ -238,7 +239,8 @@ function Home() {
                 </Draggable>)
               }
               <img src={MiniBus.default} className={minibusClassName} alt="MiniBus Animation" style={{display: showMiniBus ? 'block' : 'none', top: (minibusClassName==="minibus1") ? `calc(${roadCombined[0].y}px - 0px)` : (minibusClassName==="minibus2") ? `calc(${roadCombined[4].y}px - 80px)` : `calc(${roadCombined[8].y}px - 15px)`, left: (minibusClassName==="minibus1") ? roadCombined[0].x : (minibusClassName==="minibus2") ? `calc(${roadCombined[4].x}px + 30px)` : roadCombined[8].x}}/>
-            </div>
+            </div>*/}
+            
             {/* <div className="road_mobile">
               {road.map((key, index) => 
                 <Draggable position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoadMobile(e, data, "single")}>
@@ -254,15 +256,23 @@ function Home() {
             </div> */}
           </div>
           <div className="content">
-            Detour Bus is a casual VR game where players build ridiculous winding highways around themselves to take the dysfunctional Flowers family on a road trip across Post-Infrastructure America. Get in the construction groove to take on corrupt Senator Joseph McCarthief’s attempts to turn all freeways into pay-to-drive tunnels and reclaim your right to transportation.<br/>
-            <br/>
-            Featuring: bison herding, 5G weather machines, 360-degree video, a giant tow truck mech, and of course lots of bus hats
+          Snap together inconvenient road pieces to build ridiculously convoluted highways, and guide the dysfunctional Flowers family on a psychedelic road trip across post-infrastructure America!<br/><br/>
+            Featuring: bison herding, 5G weather machines, bus-sized carnival games, a giant tow truck mech, and lots of bus hats
             <br/><br/><br/><br/>
-            <span className="content_bold">Arriving summer 2021 on Oculus Rift and SteamVR</span>
-            <br/><br/>
-            Made by placeholder and friends, and published by placeholder. <br/>
-            Please enjoy our screenshots, Twitter, and Email.
           </div>
+            
+          <div className="content_bold">
+            <a className="content_bold">Arriving summer 2021 on Oculus Rift and </a>
+            <a className="content_bold_link"><a href="https://store.steampowered.com/app/1342020/" target="_blank" rel="noopener noreferrer">SteamVR</a></a>
+            <br/><br/>
+
+          </div>
+          {
+            // Made by placeholder and friends, and published by placeholder. <br/>
+            //  Please enjoy our screenshots, Twitter, and Email.
+          } 
+          
+          
           <div className="youtube">
             <iframe 
               src="https://www.youtube.com/embed/eVtKsgXyZd0"
