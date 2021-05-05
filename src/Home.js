@@ -226,7 +226,7 @@ function Home() {
         <div className="container_inner">
           <div className="header" onDragOver={(e)=>e.preventDefault()}>
             <img src={Logo.default} className="logo" alt="Detour Bus Logo"/>
-            <div className="road">
+            <div className="road" style={{display: 'none'}}>
               {road.map((key, index) => 
                 <Draggable key={key.img} position={{x:key.x, y:key.y}} onDrag={(e, data)=>dragRoad(e, data, index)} onStop={(e, data)=>stopDragRoad(e, data, "single")}>
                   <div className="road_img" style={{backgroundImage: `url(${key.img})`, backgroundRepeat: "no-repeat", width: roadSetSize[roadSetIndex].x, height: roadSetSize[roadSetIndex].y}}/>
