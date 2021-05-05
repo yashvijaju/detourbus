@@ -60,8 +60,8 @@ function Team() {
                 <div className="content_answer"><a href="https://www.artstation.com/josephjacobs" target="_blank" rel="noopener noreferrer">Joe Jacobs</a></div>
             </div>
             <div className="content_team">
-                <div className="content_title">MARKETING</div>
-                <div className="content_answer">Jake Hirsch</div>
+                <div className="content_title">COMPOSER</div>
+                <div className="content_answer"><a href="https://www.lucamendoza.net/" target="_blank" rel="noopener noreferrer">Luca Mendoza</a></div>
             </div>
           </div>
           <div className="footer">

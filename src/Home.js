@@ -254,15 +254,20 @@ function Home() {
             </div> */}
           </div>
           <div className="content">
-            Detour Bus is a casual VR game where players build ridiculous winding highways around themselves to take the dysfunctional Flowers family on a road trip across Post-Infrastructure America. Get in the construction groove to take on corrupt Senator Joseph McCarthief’s attempts to turn all freeways into pay-to-drive tunnels and reclaim your right to transportation.<br/>
+          Snap together inconvenient road pieces to build ridiculously convoluted highways, and guide the dysfunctional Flowers family on a psychedelic road trip across post-infrastructure America!<br/><br/>
             <br/>
-            Featuring: bison herding, 5G weather machines, 360-degree video, a giant tow truck mech, and of course lots of bus hats
-            <br/><br/><br/><br/>
-            <span className="content_bold">Arriving summer 2021 on Oculus Rift and SteamVR</span>
-            <br/><br/>
-            Made by placeholder and friends, and published by placeholder. <br/>
-            Please enjoy our screenshots, Twitter, and Email.
           </div>
+            
+          <div className="content_bold">
+            <a className="content_bold">Arriving summer 2021 on Oculus Rift and </a>
+            <a className="content_bold_link"><a href="https://store.steampowered.com/app/1342020/" target="_blank" rel="noopener noreferrer">SteamVR</a></a>
+            <br/><br/>
+
+          </div>
+          {
+            // Made by placeholder and friends, and published by placeholder. <br/>
+            //  Please enjoy our screenshots, Twitter, and Email.
+          } 
           <div className="youtube">
             <iframe 
               src="https://www.youtube.com/embed/eVtKsgXyZd0"

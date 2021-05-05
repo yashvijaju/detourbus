@@ -44,10 +44,10 @@ function Footer() {
             <div className="footer_nav">
               <a href="/" className="content">HOME</a>
               <a href="/faq" className="content">FAQ</a>
-              <a href="https://www.detourbus.com/blog" target="_blank" rel="noreferrer noopener" className="content">BLOG</a>
+              <a href="https://latestageinteractive.squarespace.com/blog" target="_blank" rel="noreferrer noopener" className="content">BLOG</a>
               <a href="/accessibility" className="content">ACCESSIBILITY</a>
               <a href="/team" className="content">TEAM</a>
-              <a href="https://www.detourbus.com/press" target="_blank" rel="noreferrer noopener" className="content">PRESSKIT</a>
+              <a href="https://latestageinteractive.squarespace.com/press" target="_blank" rel="noreferrer noopener" className="content">PRESSKIT</a>
             </div>
             <div className="footer_nav_mobile">
               <a href="/" className="content">HOME</a>
@@ -55,9 +55,9 @@ function Footer() {
               <a href="/accessibility" className="content">ACCESSIBILITY</a>
             </div>
             <div className="footer_nav_mobile">
-              <a href="https://www.detourbus.com/blog" target="_blank" rel="noreferrer noopener" className="content">BLOG</a>
+              <a href="https://latestageinteractive.squarespace.com/blog" target="_blank" rel="noreferrer noopener" className="content">BLOG</a>
               <a href="/team" className="content">TEAM</a>
-              <a href="https://www.detourbus.com/press" target="_blank" rel="noreferrer noopener" className="content">PRESSKIT</a>
+              <a href="https://latestageinteractive.squarespace.com/press" target="_blank" rel="noreferrer noopener" className="content">PRESSKIT</a>
             </div>
             <div className="footer_row">
               <div className="footer_row_mailinglist">
@@ -84,7 +84,7 @@ function Footer() {
             <div className="footer_row" style={{alignItems: 'center'}}>
               <div className="footer_row_caveat">
                 <div className="content">Detour Bus is in no way affiliated with and does not sponsor any automobile manufacturing company.</div>
-              </div>
+                <div className="content_bold_link"><a href="https://latestageinteractive.squarespace.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></div>              </div>
               <div className="footer_row_socials">
                 <a href="https://twitter.com/detourbus" target="_blank" rel="noreferrer noopener"><img src={Twitter.default} alt="Twitter"/></a>
                 <a href="https://www.instagram.com/detourbus/" target="_blank" rel="noreferrer noopener"><img src={Instagram.default} alt="Instagram"/></a>

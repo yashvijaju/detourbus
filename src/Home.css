@@ -141,6 +141,20 @@
   color: white;
 }
 
+.content_bold_link a:link {
+  text-decoration: none;
+  color: white;
+  border-bottom: 2px solid white;
+  margin-bottom: 0.5px;
+}
+
+.content_bold_link a:visited {
+  text-decoration: none;
+  color: white;
+  border-bottom: 2px solid white;
+  margin-bottom: 0.5px;
+}
+
 .youtube {
   margin: 5vh 0 0;
   width: 100%;
